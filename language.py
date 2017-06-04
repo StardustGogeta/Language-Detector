@@ -155,8 +155,12 @@ Dragon = Language("Dragon")
 Dragon.teach(samples.DragonBase)
 Dragon.teach(samples.Dragon1)
 
-L = LanguageCollection([Spanish,English,Dragon])
+Latin = Language("Latin")
+Latin.teach(samples.Latin1)
+
+L = LanguageCollection([Spanish,English,Dragon,Latin])
 L.runTestCase("This is an example of speech synthesis in English.",'English',1)
 L.runTestCase("Es un ejemplo de palabras en español.",'Spanish',2)
 L.runTestCase("Fus ro dah! Kol val kest!",'Dragon',3)
+L.runTestCase("in principio creavit Deus caelum et terram",'Latin',4)
 # L.evaluate("Insert text here!")
