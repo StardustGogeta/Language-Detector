@@ -1,10 +1,17 @@
 SpanishBase = """
 trabajador lengua palabras traductor traer tratar enviar copiar el perro corre come comera
-yo soy un estudiante muy talentoso llamar inteligente gente simple trabajare hablare
+yo soy un estudiante muy talentoso llamar inteligente gente simple
 aplicar cantas dices cortar corregir corazon corriente caliente libre madre padre habre sugiere
-libro hablo miembro cuatro cinco seis siete ocho nueve nieve diez once doce trece pero pinata y
+libro hablo miembro cuatro cinco seis siete ocho nueve nieve diez once doce trece pero y
 pez pelota nacer pequeno peso peru penal peor pedir permitir
 """
+
+SpanishAccents = """
+hablaría añadir decías traducían traducíamos hablábamos piñata trabajaré hablaré
+haré hablé comiste bebió abrazamos manejasteis hablaron caminaba estudiabas
+llorábamos esperabais miraban habría manejado habremos duchado habréis bañado
+"""
+
 Spanish1 = """
 Cada vez que yo me voy llevo a un lado de mi piel
 Tus fotografías para verlas cada vez

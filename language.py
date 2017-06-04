@@ -119,6 +119,7 @@ class NeuronFrequency(Neuron):
 # Use theme songs, poems, and books to train AI
 Spanish = Language("Spanish")
 Spanish.teach(samples.SpanishBase)
+Spanish.teach(samples.SpanishAccents)
 Spanish.teach(samples.Spanish1)
 
 English = Language("English")
