@@ -57,7 +57,8 @@ class Language():
                                              ('suf',2),('mid',3),('mid',4),('pre',1),('suf',1),('pre',4)]
         for c in self.config:
             self.brain += [NeuronGroup(*c)]
-        self.brain += [NeuronFrequency()]
+        for l in range(1,5):
+            for _ in range(1): self.brain += [NeuronFrequency(l)]
             
     def teach(self, sample):
         sample = sample.lower()
@@ -113,8 +114,13 @@ class NeuronGroup(Neuron):
         
 # Subclass of Neuron built for checking letter frequency: 
 class NeuronFrequency(Neuron):
+    def __init__(self, length):
+        self.length = length
+        Neuron.__init__(self)
+    
     def getFreqs(self,sample):
-        return ''.join(x[0] for x in Counter(sample).most_common(3))
+        mostCommon = [x[0] for x in Counter(sample).most_common(self.length)]
+        return ''.join(mostCommon)
         
     def teach(self, sample):
         freqs = self.getFreqs(sample)
