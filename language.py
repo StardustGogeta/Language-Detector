@@ -1,6 +1,9 @@
 import math, re, samples
 from collections import Counter
 
+global unitTests
+unitTests = 0
+
 # How to use:
 # - Create language with Language class
 # - Train individual words or sentences with Language.teach()
@@ -11,14 +14,27 @@ from collections import Counter
 class LanguageCollection():
     def __init__(self, langs):
         self.langs = langs
-        
-    def evaluate(self, sample): # Return best-fit language and score
+
+    def evalCore(self,sample):
         best = ['',0]
         for lang in self.langs:
             c = lang.evaluate(sample)
             if c > best[1]:
                 best[1] = c
                 best[0] = lang.lang
+        return best
+    
+    def runTestCase(self, sample, expectedBest, num):
+        global unitTests
+        best = self.evalCore(sample)
+        if best[0] == expectedBest:
+            if unitTests:
+                print("Test {} passed successfully.".format(str(num)))
+        else:
+            print("Test {} failed: returned {} rather than expected {}.".format(num,best[0],expectedBest))
+        
+    def evaluate(self, sample): # Return best-fit language and score
+        best = self.evalCore(sample)
         return best[0]+' with a confidence of '+str(best[1])
 
     def printFullEval(self,sample): # Print all languages, sorted by score.
@@ -29,8 +45,8 @@ class LanguageCollection():
         for lang in self.langs:
             c = lang.evaluate(sample)
             langs.append([lang.lang,c])
-        langs.sort(key = lambda x: x[1])
-        return langs[::-1]
+        langs.sort(key = lambda x: -x[1])
+        return langs
             
 # Wrapper Language class spawns Neurons based on configuration
 class Language():
@@ -134,4 +150,7 @@ Dragon.teach(samples.DragonBase)
 Dragon.teach(samples.Dragon1)
 
 L = LanguageCollection([Spanish,English,Dragon])
+L.runTestCase("This is an example of speech synthesis in English.",'English',1)
+L.runTestCase("Es un ejemplo de palabras en español.",'Spanish',2)
+L.runTestCase("Fus ro dah! Kol val kest!",'Dragon',3)
 # L.evaluate("Insert text here!")
