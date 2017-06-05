@@ -3,7 +3,7 @@ trabajador lengua palabras traductor traer tratar enviar copiar el perro corre c
 yo soy un estudiante muy talentoso llamar inteligente gente simple
 aplicar cantas dices cortar corregir corazon corriente caliente libre madre padre habre sugiere
 libro hablo miembro cuatro cinco seis siete ocho nueve nieve diez once doce trece pero y
-pez pelota nacer pequeno peso peru penal peor pedir permitir
+pez pelota nacer pequeno peso peru penal peor pedir permitir agua cosa usted
 """
 SpanishAccents = """
 hablaría añadir decías traducían traducíamos hablábamos piñata trabajaré hablaré
